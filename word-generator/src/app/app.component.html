@@ -1,0 +1,20 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+<div class="container w-50 mt-5 text-center">
+  <div class="text-center display-4 m-3 text-white">
+    Word Limit: {{ limit }}
+  </div>
+  
+  <input min="1" max="50"  value = "{{ limit }}"  class="slider form-control-range" 
+  (change)="handleSlideChange($event.target.value)" type="range">
+
+  <button class="btn btn-info" (click)="generate()">Generate Words</button>
+
+  <div *ngIf="words" class="card card-body">
+    <p class="display-4">
+      {{ words }}
+    </p>
+  </div>
+
+</div>

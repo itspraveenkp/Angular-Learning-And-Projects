@@ -1,0 +1,11 @@
+import { fromEvent, observable } from "rxjs";
+fromEvent(document, "click").subscribe(() => console.log("Click"));
+
+
+
+import { fromEvent } from "rxjs";
+import { count, scan } from "rxjs/operators";
+
+fromEvent(document, "click")
+  .pipe(scan(count => count + 1, 0))
+  .subscribe(count => console.log(` Clicked at : ${count}`));
